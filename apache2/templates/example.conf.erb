@@ -1,0 +1,45 @@
+<VirtualHost <%= @ipaddress %>:80>
+  ServerName www.example.com
+  ServerAlias example.com
+  ServerAdmin webmaster@example1.com
+  DocumentRoot /var/www/kereza/web/
+
+
+
+
+
+
+
+
+  <IfModule mod_fcgid.c>
+
+
+
+
+
+
+    SuexecUserGroup kereza kereza
+    <Directory /var/www/kereza/web/>
+      Options +ExecCGI
+      AllowOverride All
+
+
+
+
+
+
+        AddHandler fcgid-script .php
+      FCGIWrapper /var/www/kereza/php-fcgi-starter .php
+      Order allow,deny
+      Allow from all
+    </Directory>
+  </IfModule>
+
+ErrorLog /var/log/apache2/error.log
+  # ErrorLog /var/log/apache2/error.log
+CustomLog /var/log/apache2/access.log forwarded
+  # CustomLog /var/log/apache2/access.log combined
+  ServerSignature Off
+
+</VirtualHost>
+

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+export EC2_HOME=/home/kereza/ec2
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export AWS_SECRET_KEY=Bm0K1TC2hWaTq2GMfabHNxx/yuvLsBx4c0RrJjeD
+export AWS_ACCESS_KEY=AKIAIMT3UYPFVG7AD76A
+export AWS_DEFAULT_REGION=eu-west-1
+
+function updateEIP(){
+
+
+
+echo "Assingning IP  to instance..."
+
+
+#change the IP to elastic IP
+/home/ubuntu/ec2/bin/ec2-associate-address -i i-1a1ef1a2 52.18.158.10 --allow-reassociation --region eu-west-1
+
+
+echo "done!"
+
+}
+
+param=$1
+
+if [ "start" == "$param" ] ; then
+  echo "Starting..."
+  updateEIP
+  exit 0
+elif [ "stop" == "$param" ] ; then
+  echo "stopping..."
+  exit 0;
+else
+  echo "no such command $param"
+  exit 1
+fi
+

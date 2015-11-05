@@ -1,0 +1,19 @@
+logfile /tmp/ha-log
+debugfile /tmp/ha-debug
+logfacility local0
+keepalive 2
+deadtime 10
+initdead 60
+warntime 5
+udpport 694
+ucast eth0 <%= @ipaddress %>
+#add more the IP's of the other load balancers
+
+#add more interfaces
+auto_failback on
+auto_failback on
+
+#add more hostnames
+node <%= @hostname %>
+#add the hostnames of the other load balancer
+
