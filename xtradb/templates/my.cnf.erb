@@ -1,0 +1,18 @@
+[mysqld]
+#server_id=?
+binlog_format=ROW
+log_bin=mysql-bin
+wsrep_cluster_address=gcomm://172.31.40.100
+wsrep_provider=/usr/lib/libgalera_smm.so
+datadir=/var/lib/mysql
+
+wsrep_slave_threads=2
+wsrep_cluster_name=pxctest
+wsrep_sst_method=xtrabackup
+wsrep_node_name=<%= @hostname %>
+
+log_slave_updates
+
+innodb_autoinc_lock_mode=2
+innodb_buffer_pool_size=400M
+innodb_log_file_size=64M
