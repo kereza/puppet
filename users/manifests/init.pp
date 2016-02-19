@@ -5,7 +5,7 @@ class users {
 		managehome => yes,
 	}
 
-	file {"/home/kereza":
+	file {"/home/kerezaz":
 		ensure => present,
 	}
 
