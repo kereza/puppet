@@ -1,2 +1,1 @@
-# puppet
-First manifests with puppet
+#First manifests with puppet
