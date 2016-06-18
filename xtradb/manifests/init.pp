@@ -1,4 +1,4 @@
-class xtradb {
+class xtradb 
 	package {['percona-xtradb-cluster-server', 'percona-xtradb-cluster-client', 'percona-xtrabackup']:
 		ensure => installed,
 		
